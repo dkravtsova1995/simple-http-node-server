@@ -2,10 +2,14 @@ const fs = require('fs');
 const http = require('http');
 const port = 3000;
 
+fs.writeFile('hello-world.txt', 'Hello to this great world', 'utf8', (err) => {
+    if(err) throw err;
+
+    console.log('success');
+});
+
 const requestHandler = (request, response) => {
-    fs.writeFile('hello-world.txt', 'Hello to this great world', 'utf8', (err) => {
-        console.log('success');
-    });
+
     response.end('File hello-world.txt created');
 }
 
